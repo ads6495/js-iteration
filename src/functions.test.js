@@ -222,7 +222,14 @@ const someoneToLove = array => {
  */
 
 // ...
-
+const mapYourself = array => {
+  const newArray = []
+  for (let i = 0; i < array.length; i++) {
+    let num = array[i] * 2
+    newArray.push(num)
+  }
+  return newArray
+}
 /*
  * Define a function filterYourself that accepts an
  * array of numbers and returns a new array containing
@@ -234,7 +241,15 @@ const someoneToLove = array => {
  */
 
 // ...
-
+const filterYourself = array => {
+  let newArray = []
+  for (let i = 0; i < array.length; i++) {
+    if (i % 2 === 0) {
+      newArray.push(array[i])
+    }
+  }
+  return newArray
+}
 /*
  * Define a function everyYourself that accepts an
  * array of numbers and returns true if every number
@@ -244,7 +259,15 @@ const someoneToLove = array => {
  *
  * So no using forEach, map, filter, reduce, etc.
  */
-
+const everyYourself = array => {
+  let returnValue = 0
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 !== 0) {
+      returnValue = false
+    }
+  }
+  return returnValue
+}
 // ...
 
 /**
