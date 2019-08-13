@@ -57,11 +57,15 @@
  * the words forced to uppercase
  *
  * Example:
- *
- * const yelling = (array) => {
- *    // your code here
- * }
- */
+ * */
+
+const yelling = () => {
+
+  let newArray = ['now', 'is', 'the', 'time']
+
+  return newArray.map(a => a.toUpperCase())
+}
+
 
 // ...
 
@@ -72,7 +76,17 @@
  * the numbers multiplied by 2
  */
 
-// ...
+// 
+
+const doubleTrouble = () => {
+  let a = [2, 3, 9, 0, -5]
+
+  for (let i = 0; i < a.length; i++) {
+    a[i] *= 2
+  }
+  return a
+
+}
 
 /*
  * Define a function stringyIndexes() that takes an array of
@@ -81,13 +95,27 @@
  */
 
 // ...
+const stringyIndexes = people => {
 
+  return people.map((people, index) => {
+    return people + ' is at index ' + index
+  })
+}
 /*
  * Define a function onlyTheEvenSurvive that accepts an array of
  * numbers and returns only the elements that are even
  */
 
 // ...
+const onlyTheEvenSurvive = evens => {
+  let r = evens.filter(even => {
+    if (even % 2 === 0) {
+      return even
+    }
+  })
+  return r
+}
+
 
 /*
  * Define a function onlyTheEvenIndexedSurvive that accepts an array of
@@ -95,6 +123,10 @@
  */
 
 // ...
+const onlyTheEvenIndexedSurvive = (arr, index) => {
+  let evenIndexes = arr.filter((a, i) => i % 2 === 0);
+  return evenIndexes
+}
 
 /*
  * Define a function bestMoviesOfTheYear that accepts an array of
@@ -111,6 +143,15 @@
  */
 
 // ...
+const bestMoviesOfTheYear = (arr, year) => {
+  let filteredMovies = arr.filter(arr => arr.score > 90 && arr.year == year)
+  const newArr = []
+  filteredMovies.forEach(arr => {
+    newArr.push(arr.name)
+  })
+  return newArr
+}
+
 
 /*
  * Define a function everyoneIsOdd that accepts an array of
@@ -119,7 +160,17 @@
  */
 
 // ...
+const everyoneIsOdd = arr => {
+  let newArray = arr.filter(num => {
+    return num % 2 !== 0
 
+  })
+  if (arr.length === newArray.length) {
+    return true
+  } else {
+    return false
+  }
+}
 /*
  * Define a function findTheNeedle that accepts an array of
  * strings and returns the one string that contains the word
@@ -127,7 +178,10 @@
  */
 
 // ...
-
+const findTheNeedle = array => {
+  const filteredArray = array.filter(arr => arr.includes('needle'))
+  return filteredArray.toString()
+}
 /*
  * Define a function findTheNeedleIndex that accepts an array of
  * strings and returns the index of the string that contains
@@ -135,7 +189,13 @@
  */
 
 // ...
-
+const findTheNeedleIndex = array => {
+  for (let i = 0; i = array.length; i++) {
+    if (array[i].includes('needle')) {
+      return i
+    }
+  }
+}
 /*
  * Define a function someoneToLove that accepts an array of
  * strings and returns true if at least one string is exactly
@@ -143,7 +203,15 @@
  */
 
 // ...
-
+const someoneToLove = array => {
+  let strings = false
+  array.forEach(string => {
+    if (string.length == 4) {
+      checker = true
+    }
+  })
+  return strings
+}
 /*
  * Define a function mapYourself that accepts an array of
  * numbers and returns a new array where each number is doubled.
@@ -184,7 +252,6 @@
  */
 
 /* eslint-disable no-undef */
-
 import test from 'ava'
 
 const ensureDefined = (t, method) => {
@@ -302,15 +369,46 @@ test('onlyTheEvenIndexedSurvive', t => {
 
 test('Function Check', t => ensureDefined(t, 'bestMoviesOfTheYear'))
 test('bestMoviesOfTheYear', t => {
-  const movies = [
-    { name: 'The Grand Budapest Hotel', year: 2014, score: 91 },
-    { name: 'Birdman', year: 2014, score: 91 },
-    { name: 'Transformers: Age of Extinction', year: 2014, score: 18 },
-    { name: 'Rage', year: 2014, score: 14 },
-    { name: 'Get Out', year: 2017, score: 99 },
-    { name: 'Justice League', year: 2017, score: 40 },
-    { name: 'Ghost in the Shell', year: 2017, score: 46 },
-    { name: 'The Big Sick', year: 2017, score: 98 }
+  const movies = [{
+      name: 'The Grand Budapest Hotel',
+      year: 2014,
+      score: 91
+    },
+    {
+      name: 'Birdman',
+      year: 2014,
+      score: 91
+    },
+    {
+      name: 'Transformers: Age of Extinction',
+      year: 2014,
+      score: 18
+    },
+    {
+      name: 'Rage',
+      year: 2014,
+      score: 14
+    },
+    {
+      name: 'Get Out',
+      year: 2017,
+      score: 99
+    },
+    {
+      name: 'Justice League',
+      year: 2017,
+      score: 40
+    },
+    {
+      name: 'Ghost in the Shell',
+      year: 2017,
+      score: 46
+    },
+    {
+      name: 'The Big Sick',
+      year: 2017,
+      score: 98
+    }
   ]
 
   t.deepEqual(bestMoviesOfTheYear(movies, 2014), [
