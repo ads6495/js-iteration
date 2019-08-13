@@ -190,7 +190,7 @@ const findTheNeedle = array => {
 
 // ...
 const findTheNeedleIndex = array => {
-  for (let i = 0; i = array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (array[i].includes('needle')) {
       return i
     }
@@ -207,7 +207,7 @@ const someoneToLove = array => {
   let strings = false
   array.forEach(string => {
     if (string.length == 4) {
-      checker = true
+      strings = true
     }
   })
   return strings
