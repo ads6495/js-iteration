@@ -260,7 +260,7 @@ const filterYourself = array => {
  * So no using forEach, map, filter, reduce, etc.
  */
 const everyYourself = array => {
-  let returnValue = 0
+  let returnValue = true
   for (let i = 0; i < array.length; i++) {
     if (array[i] % 2 !== 0) {
       returnValue = false
